@@ -1,0 +1,24 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  height: 100%;
+}
+
+.preview-area {
+  width: 70%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gray);
+}
+
+.no-selection {
+  font-size: 1.5em;
+  color: #888;
+}

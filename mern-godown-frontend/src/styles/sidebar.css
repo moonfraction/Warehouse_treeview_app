@@ -1,0 +1,164 @@
+.sidebar {
+  width: 450px;
+  position: relative;
+  padding-bottom: 10px;
+  background-color: var(--dark2);
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-text {
+  font-size: 1em;
+  color: #888;
+  padding-left: 10px;
+}
+
+.tree-root {
+  list-style-type: none;
+  padding-left: 0;
+  overflow: auto;
+  flex-grow: 1; 
+}
+
+.tree-node{
+  cursor: pointer;
+}
+
+
+.tree-node-label {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  width: 100%; 
+  color: white;
+  transition: background-color 0.3s ease; 
+  position: relative;
+  box-sizing: border-box; 
+  padding-left: calc(var(--level, 0) * 20px); 
+}
+
+.tree-node-label.expanded {
+  background-color: var(--dark4);
+}
+
+.tree-node-label.collapsed {
+  background-color: var(--dark2);
+}
+
+.tree-node-label:hover {
+  background-color: var(--dark3);
+  transition: background-color 0.3s ease; 
+}
+
+
+.tree-node-item {
+  padding: 10px;
+  background-color: var(--dark6);
+  display: flex;
+  align-items: center;
+  color: white;
+  transition: background-color 0.3s ease; 
+  position: relative; 
+  width: 100%;
+  box-sizing: border-box; 
+  padding-left: calc(var(--level, 0) * 20px);
+}
+
+.tree-node-item:hover {
+  background-color: var(--dark5);
+  transition: background-color 0.3s ease; 
+}
+
+.tree-node-item.selected {
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: underline;
+  transition:  0.4s ease; 
+}
+
+
+.tree-node-label.highlighted {
+  text-decoration: underline;
+  font-style: italic;
+  transition:  0.4s ease; 
+}
+
+
+.tree-node-children {
+  list-style-type: none;
+  padding-left: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease; 
+}
+
+
+.tree-node-children.expanded {
+  max-height: 30000px;
+  transition: max-height 1.5s ease; 
+}
+
+
+.tree-node-items {
+  list-style-type: none;
+  padding-left: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease; 
+}
+
+.tree-node-items.expanded {
+  max-height: 1000px;
+  transition: max-height 0.3s ease;
+}
+
+
+.item-icon, .arrow-icon, .folder-icon {
+  margin-right: 5px;
+  color: white;
+}
+
+.arrow-icon {
+  margin-right: 5px;
+  color: white;
+  transition: transform 0.3s ease; 
+}
+
+.tree-node-label.expanded .arrow-icon {
+  transform: rotate(90deg); 
+}
+
+.tree-node-label.collapsed .arrow-icon {
+  transform: rotate(0deg); 
+}
+
+.collapse-all {
+  position: absolute; 
+  top: 15px; 
+  right: 15px; 
+  color: white;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.collapse-all:hover {
+  color: var(--secondary); 
+}
+
+.tree-node-item.matched {
+  background-color: var(--dark7); 
+  color: var(--tertiary); 
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--red); /* Color of the dot */
+  border-radius: 50%;
+  margin-left: 10px;
+}

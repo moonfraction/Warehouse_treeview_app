@@ -1,0 +1,91 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background: linear-gradient(to right, #191819 30%, var(--primary));
+  color: white;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 2rem; 
+  font-weight: bold;
+  text-transform: uppercase; 
+  letter-spacing: 3px;
+  padding: 0 10px;
+  text-decoration: none;
+  transition: .3s ease;
+}
+
+.navbar-brand:hover {
+  color: var(--primary); 
+  cursor: pointer; 
+}
+
+.navbar-search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 40px; 
+  transition: width 0.4s ease; 
+}
+
+.navbar-search-container.expanded {
+  width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: var(--gray);
+  font-size: 25px;
+}
+
+.navbar-search {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  border: none;
+  width: 320px;
+  color: white;
+  opacity: 0; 
+  pointer-events: none; 
+  transition: opacity 0.4s ease;
+}
+
+.navbar-search.show {
+  opacity: 1; 
+  background-color: rgb(77, 106, 179, 0.5);
+  pointer-events: all; 
+}
+
+.navbar-search::placeholder {
+  color: var(--gray);
+}
+
+.navbar-search:focus {
+  color: white;
+  outline: none; 
+  background-color: rgb(77, 106, 179, 0.5);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.navbar-filters {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.filter-dropdown {
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  background-color: white;
+  color: var(--gray);
+  cursor: pointer;
+}
