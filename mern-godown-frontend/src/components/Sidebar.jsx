@@ -8,6 +8,8 @@ import {
   faDownLeftAndUpRightToCenter, // Collapse icon
 } from "@fortawesome/free-solid-svg-icons"; 
 import "../styles/sidebar.css";
+import { BASE_URL } from "../App";
+
 
 const Sidebar = ({ onSelectItem, highlightedNodes, selectedItem, searchQuery }) => {
   const [godownTree, setGodownTree] = useState(null);
@@ -18,7 +20,7 @@ const Sidebar = ({ onSelectItem, highlightedNodes, selectedItem, searchQuery }) 
   useEffect(() => {
     const fetchGodownTree = async () => {
       try {
-        const response = await axios.get("http://localhost:5050/api/godowns/");
+        const response = await axios.get(`${BASE_URL}/api/godowns/`);
         setGodownTree(response.data);
       } catch (error) {
         console.error("Error fetching godown tree:", error);
@@ -97,9 +99,9 @@ const Sidebar = ({ onSelectItem, highlightedNodes, selectedItem, searchQuery }) 
   const handleDrop = async (e, godownId) => {
     const itemId = e.dataTransfer.getData("itemId");
     try {
-      await axios.put(`http://localhost:5050/api/items/move/${itemId}`, { godown_id: godownId });
+      await axios.put(`${BASE_URL}/api/items/move/${itemId}`, { godown_id: godownId });
       // Re-fetch the godown tree to update the UI
-      const response = await axios.get("http://localhost:5050/api/godowns/");
+      const response = await axios.get(`${BASE_URL}/api/godowns/`);
       setGodownTree(response.data);
     } catch (error) {
       console.error("Error updating item:", error);

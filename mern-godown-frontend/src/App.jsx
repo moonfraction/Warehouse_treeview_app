@@ -7,6 +7,10 @@ import "./styles/common.css";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 
+// export const BASE_URL = process.env.REACT_APP_API_URL;
+// export const BASE_URL =  import.meta.env.REACT_APP_API_URL;
+export const BASE_URL = "https://api.auth.localhost";
+
 
 const App = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
