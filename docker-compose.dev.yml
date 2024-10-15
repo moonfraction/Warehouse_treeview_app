@@ -3,6 +3,8 @@ name: godown-treeapp
 services:
   mongo:
     image: mongo:7.0.12
+    ports:
+      - "27017:27017"
     volumes:
       - ./mongo-data:/data/db
     networks:
@@ -14,6 +16,9 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     env_file: ./mern-godown-backend/.env
+    volumes:
+      - ./mern-godown-backend:/app
+      - /app/node_modules
     networks:
       - godown-treeapp
     depends_on:
@@ -22,25 +27,26 @@ services:
   client:
     build:
       context: ./mern-godown-frontend
-      target: production
+      dockerfile: development
       args:
-        REACT_APP_API_URL: https://api.${DOMAIN_NAME}
+        REACT_APP_API_URL: http://api.auth.localhost
     restart: unless-stopped
+    env_file: ./mern-godown-frontend/.env
+    volumes:
+      - ./mern-godown-frontend:/app
+      - /app/node_modules
     networks:
       - godown-treeapp
     depends_on:
       - api
 
   caddy:
-    build: 
-      context: ./caddy
-      dockerfile: Dockerfile
+    image: caddy:2-alpine
     ports:
       - "80:80"
       - "443:443"
-    environment:
-      DOMAIN_NAME: ${DOMAIN_NAME}
     volumes:
+      - ./caddy/Caddyfile.dev:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
     networks:
