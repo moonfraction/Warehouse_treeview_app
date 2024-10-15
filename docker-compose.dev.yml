@@ -27,9 +27,9 @@ services:
   client:
     build:
       context: ./mern-godown-frontend
-      dockerfile: development
+      target: development
       args:
-        REACT_APP_API_URL: http://api.auth.localhost
+        REACT_APP_API_URL: http://api.warehousetree.localhost
     restart: unless-stopped
     env_file: ./mern-godown-frontend/.env
     volumes:

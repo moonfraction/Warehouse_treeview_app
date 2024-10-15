@@ -9,9 +9,9 @@ import Home from "./Pages/Home";
 
 /* doesnt matter in prod, because we pass it as arg*/
 // export const BASE_URL = process.env.REACT_APP_API_URL
-// export const BASE_URL =  import.meta.env.REACT_APP_API_URL;
 // export const BASE_URL = "https://api.auth.localhost";
-export const BASE_URL = "https://api.warehousetree.work.gd";
+// export const BASE_URL = "https://api.warehousetree.work.gd";
+export const BASE_URL = "https://api.warehousetree.localhost";
 
 
 
