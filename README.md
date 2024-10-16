@@ -46,3 +46,6 @@
 ### Demonstration
 
 [Demo-video link](https://drive.google.com/file/d/14drASK0hx7bFdMfkC5sMDGhSDFougD0F/view?usp=sharing)
+
+
+> For brief explanations of the code structure and functionality, please refer to the [explain.md](./explain.md) file.
